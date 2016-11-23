@@ -1,0 +1,75 @@
+name: rssreader-app
+version: "1.0"
+summary: A snap app from Ubuntu phone app
+description: This is an exmaple showing how to convert a Ubuntu phone app to a desktop snap app
+confinement: strict # devmode
+
+apps:
+  rssreader:
+    command: desktop-launch $SNAP/lib/x86_64-linux-gnu/bin/rssreader
+    plugs: [network,network-bind,network-manager,home,unity7,opengl]
+
+parts:
+  rssreader:
+    source: src/
+    plugin: qmake
+    qt-version: qt5
+    build-packages:
+      - cmake
+      - gettext
+      - intltool
+      - ubuntu-touch-sounds
+      - suru-icon-theme
+      - qml-module-qttest
+      - qml-module-qtsysteminfo
+      - qml-module-qt-labs-settings
+      - qtdeclarative5-u1db1.0
+      - qtdeclarative5-qtmultimedia-plugin
+      - qtdeclarative5-qtpositioning-plugin
+      - qtdeclarative5-ubuntu-content1
+      - qt5-default
+      - qtbase5-dev
+      - qtdeclarative5-dev
+      - qtdeclarative5-dev-tools
+      - qtdeclarative5-folderlistmodel-plugin
+      - qtdeclarative5-ubuntu-ui-toolkit-plugin
+      - xvfb
+    stage-packages:
+      - libsdl2-2.0-0
+      - libqt5gui5
+      - libqt5qml5
+      - libqt5quick5
+      - libqt5widgets5
+      - libqt5network5
+      - libqt5multimedia5
+      - libqt5declarative5
+      - qml-module-qtquick2
+      - qml-module-qtquick-window2
+      - qml-module-qtquick-layouts
+      - qml-module-qtquick-controls
+      - qml-module-qt-labs-settings
+      - qml-module-ubuntu-components
+      - qml-module-qtquick-xmllistmodel
+      - ubuntu-ui-toolkit-theme
+      - qml-module-ubuntu-connectivity
+      - qml-module-ubuntu-layouts
+      - qml-module-ubuntu-performancemetrics
+      - fonts-wqy-zenhei
+      - fcitx-frontend-qt5
+      #- fcitx
+      #- fcitx-frontend-gtk2
+      #- fcitx-frontend-all
+      #- fcitx-module-x11
+      #- fcitx-sunpinyin
+#    stage:
+      # - -usr/share/pkgconfig/xkeyboard-config.pc 
+#      - ubuntu-sdk-libs
+#      - qtubuntu-desktop
+#      - qml-module-qtsysteminfo
+#      - ubuntu-defaults-zh-cn
+    snap:
+      - -usr/share/doc
+      - -usr/include
+    after: [desktop/qt5]
+ 
+

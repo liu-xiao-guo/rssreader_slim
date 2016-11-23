@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=RSS Reader
+GenericName=RSS Reader
+Comment=A RSS reader for Ubuntu Desktop
+Keywords=rss;reader;
+Exec=rssreader-app.rssreader
+Icon=${SNAP}/meta/gui/rssreader.png
+Terminal=false
+X-Ubuntu-Touch=true
+X-Ubuntu-Default-Department-ID=accessories
+X-Ubuntu-Splash-Color=#F5F5F5
+StartupNotify=true
